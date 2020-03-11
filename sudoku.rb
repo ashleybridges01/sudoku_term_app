@@ -1,25 +1,35 @@
 $play_game = true
          
-         $easy =  [" ", " ", " ", " ", " ", 6, 8, " ",
+         $easy = [" ", " ", " ", " ", " ", " ", 6, 8, " ",
                   " ", " ", " ", " ", 7, 3, " ", " ", 9,
-                  3, " ", 9, " ", " ", " ", " ", 4, 5,
-                  4, 9, " ", " ", " ", " ", " ", " ", " ",
+                  3, " ", 9, " ", " ", " ", " ", 4, 5, 
+                  4, 9, " ", " ", " ", " ", " ", " ", " ", 
                   8, " ", 3, " ", 5, " ", 9, " ", 2,
-                  " ", " ", " ", " ", " ", " ", " ", 3, 6,
+                  " ", " ", " ", " ", " ", " ", " ", 3, 6, 
                   9, 6, " ", " ", " ", " ", 3, " ", 8, 
-                  7, " ", " ", 6, 8, " ", " ", " ", " ", 
+                  7, " ", " ", 6, 8, " ", " ", " ", " ",
                   " ", 2, 8, " ", " ", " ", " ", " ", " "]
+
+# $easy = [1, 7, 2, 5, 4, 9, 6, 8, 3,
+# 6, 4, 5, 8, 7, 3, 2, 1, 9,
+# 3, 8, 9, 2, 6, 1, 7, 4, 5, 
+# 4, 9, 6, 3, 2, 7, 8, 5, 1, 
+# 8, 1, 3, 4, 5, 6, 9, 7, 2,
+# 2, 5, 7, 1, 9, 8, 4, 3, 6, 
+# 9, 6, 4, 7, 1, 5, 3, 2, 8, 
+# 7, 3, 1, 6, 8, 2, 5, 9, 4,
+# 5, 2, 8, 9, 3, 4, 1, 6, 7]
          
 
-# sample_ answers1 = [1, 7, 2, 5, 4, 9, 6, 8, 3,
-#                     6, 4, 5, 8, 7, 3, 2, 1, 9,
-#                     3, 8, 9, 2, 6, 1, 7, 4, 5, 
-#                     4, 9, 6, 3, 2, 7, 8, 5, 1, 
-#                     8, 1, 3, 4, 5, 6, 9, 7, 2,
-#                     2, 5, 7, 1, 9, 8, 4, 3, 6, 
-#                     9, 6, 4, 7, 1, 5, 3, 2, 8, 
-#                     7, 3, 1, 6, 8, 2, 5, 9, 4,
-#                     5, 2, 8, 9, 3, 4, 1, 6, 7]
+$sample_answers1 = [1, 7, 2, 5, 4, 9, 6, 8, 3,
+                    6, 4, 5, 8, 7, 3, 2, 1, 9,
+                    3, 8, 9, 2, 6, 1, 7, 4, 5, 
+                    4, 9, 6, 3, 2, 7, 8, 5, 1, 
+                    8, 1, 3, 4, 5, 6, 9, 7, 2,
+                    2, 5, 7, 1, 9, 8, 4, 3, 6, 
+                    9, 6, 4, 7, 1, 5, 3, 2, 8, 
+                    7, 3, 1, 6, 8, 2, 5, 9, 4,
+                    5, 2, 8, 9, 3, 4, 1, 6, 7]
 
 $reference_hash = {"a1" => 0, "a2" => 1, "a3" => 2, "a4" => 3, "a5" => 4, "a6" => 5, "a7" => 6, "a8" => 7, "a9" => 8,
                   "b1" => 9, "b2" => 10, "b3" => 11, "b4" => 12, "b5" => 13, "b6" => 14, "b7" => 15, "b8" => 16, "b9" => 17,
@@ -54,11 +64,17 @@ def user_input(reference_hash, grid)
    i = reference_hash[input]
    if input == "q"
       $play_game = false
-   else
+   elsif reference_hash.has_key?(input)
       puts "Which number would you like to change it to? (1-9)"
       new_i = gets.chomp.to_i
       grid[i] = new_i
       return grid
+   else
+      while reference_hash.has_key?(input) == false && (input != "q") do
+         puts "#{input} is not a valid input - Please try again"
+         input = gets.chomp
+      end
+      return input
   end
 end
 
@@ -68,11 +84,16 @@ def start_game()
    print_current_grid(grid)
    while $play_game == true
       user_input($reference_hash, grid)
-      print_current_grid(grid) 
+      puts print_current_grid(grid)
+      if grid == $sample_answers1
+         puts "Board complete - You win!"
+         $play_game = false
+      else
+      end
    end
 end
 
 
  start_game()
-#make sample array compare with array answers
+
 #make more grids
