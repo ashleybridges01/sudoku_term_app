@@ -1,5 +1,6 @@
-
-         sample_puzzle1 =  [" ", " ", " ", " ", " ", 6, 8, " ",
+$play_game = true
+         
+         $easy =  [" ", " ", " ", " ", " ", 6, 8, " ",
                   " ", " ", " ", " ", 7, 3, " ", " ", 9,
                   3, " ", 9, " ", " ", " ", " ", 4, 5,
                   4, 9, " ", " ", " ", " ", " ", " ", " ",
@@ -20,7 +21,7 @@
 #                     7, 3, 1, 6, 8, 2, 5, 9, 4,
 #                     5, 2, 8, 9, 3, 4, 1, 6, 7]
 
-reference_hash = {"a1" => 0, "a2" => 1, "a3" => 2, "a4" => 3, "a5" => 4, "a6" => 5, "a7" => 6, "a8" => 7, "a9" => 8,
+$reference_hash = {"a1" => 0, "a2" => 1, "a3" => 2, "a4" => 3, "a5" => 4, "a6" => 5, "a7" => 6, "a8" => 7, "a9" => 8,
                   "b1" => 9, "b2" => 10, "b3" => 11, "b4" => 12, "b5" => 13, "b6" => 14, "b7" => 15, "b8" => 16, "b9" => 17,
                   "c1" => 18, "c2" => 19, "c3" => 20, "c4" => 21, "c5" => 22, "c6" => 23, "c7" => 24, "c8" => 25, "c9" => 26,
                   "d1" => 27, "d2" => 28, "d3" => 29, "d4" => 30, "d5" => 31, "d6" => 32, "d7" => 33, "d8" => 34, "d9" => 35,
@@ -46,23 +47,32 @@ puts  "
  H  #{grid[63]} #{grid[64]} #{grid[65]} | #{grid[66]} #{grid[67]} #{grid[68]} | #{grid[69]} #{grid[70]} #{grid[71]}
  I  #{grid[72]} #{grid[73]} #{grid[74]} | #{grid[75]} #{grid[76]} #{grid[77]} | #{grid[78]} #{grid[79]} #{grid[80]}"
 end
-# grid[reference_hash[i]] = new_i
+
 def user_input(reference_hash, grid)
-   puts "Which area would you like to change? e.g. a1 , d4"
+   puts "Which area would you like to change? e.g. a1 , d4  -- Press q to quit game"
    input = gets.chomp
    i = reference_hash[input]
-   puts "Which number would you like to change it to? (1-9)"
-   new_i = gets.chomp.to_i
-   grid[i] = new_i
-   print_current_grid(grid)
-
-   
+   if input == "q"
+      $play_game = false
+   else
+      puts "Which number would you like to change it to? (1-9)"
+      new_i = gets.chomp.to_i
+      grid[i] = new_i
+      return grid
+  end
 end
 
-grid = sample_puzzle1
+def start_game()
+   puts "Welcome to Ash's Sudoku generator! Please select a game difficulty"
+   grid = $easy
+   print_current_grid(grid)
+   while $play_game == true
+      user_input($reference_hash, grid)
+      print_current_grid(grid) 
+   end
+end
 
-print_current_grid(grid)  
 
-user_input(reference_hash, grid)
+ start_game()
 #make sample array compare with array answers
 #make more grids
