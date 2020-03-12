@@ -59,9 +59,18 @@ end
 
 #code starts game, prompts to enter a difficulty looping user input into the board until board completed.
 
+
+
 def start_game()
-   puts "Welcome to Ash's Sudoku generator! Please select a game difficulty"
-   grid = $medium
+   prompt = TTY::Prompt.new
+   choice = prompt.select("Welcome to Ash's Sudoku generator! Please select a game difficulty", %w(Easy Medium Hard))
+   if choice == "Easy" 
+      grid = $easy
+   elsif choice == "Medium" 
+      grid = $medium 
+   else choice == "Hard"
+      grid = $hard
+   end 
    print_current_grid(grid)
    while $play_game == true
       user_input($reference_hash, grid)
@@ -77,4 +86,4 @@ end
 
  start_game()
 
-#make more grids
+ #make grids check
