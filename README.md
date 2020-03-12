@@ -16,11 +16,6 @@ A user will load the application via the Terminal and input commands as prompted
 Error handling is included to streamline user inputs and make it simple to use.
 
 Features:
--	Sudoku boards allow for user input
--	On successful completion of the board, (all squares correct), a “You win!” message is displayed.
--	Allow user to quit out of the application if required
--	Error handling of user input, (e.g. cannot select a tile out of grid range, cannot input a number larger than 9).
--	Help methods
 
 1)	The sudoku game presents a board to the via printing to the terminal. The board allows for user input via a key. An input of A1 will change the top left hand most corner of the board. Boards are chosen on application start-up menu via a dropdown selection. Users can select a number from 1-9 to input in the grid sections.  
 
@@ -32,4 +27,6 @@ Once game is started if a wrong input is given, e.g. j8, an “invalid input” 
 
 Input values to the grid are limited to 1-9 in order to disallow negative numbers or numbers > 9 in line with sudoku rules.
 
+3)	Help methods included when requested via inputting “h”.  Help methods come in two different options. One will highlight correct numbers on the board in green, the other will assist by filling in one extra number on the board.
 
+4)	A “You win!” message is displayed upon successful board completion.
