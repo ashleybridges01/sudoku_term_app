@@ -37,12 +37,14 @@ end
 # Grid index is changed to the requested number
 # if "q" is input game is ended
 
-def user_input(reference_hash, grid)
-   puts "Which area would you like to change? e.g. a1 , d4  -- Press q to quit game"
+def user_input(reference_hash, grid, answers)
+   puts "Which area would you like to change? e.g. a1 , d4  - Press q to quit game, Press h for help"
    input = gets.chomp
    i = reference_hash[input]
    if input == "q"
       $play_game = false
+   elsif input == "h"
+      help_add_num(grid, reference_hash, answers)
    elsif reference_hash.has_key?(input)
       puts "Which number would you like to change it to? (1-9)"
       new_i = gets.chomp.to_i
@@ -57,6 +59,23 @@ def user_input(reference_hash, grid)
   end
 end
 
+# help methods
+
+def help_add_num(grid, reference_hash, answers) 
+   puts "Which area would you like help with? E.g. a1, d6"
+   help = gets.chomp
+   help_i = reference_hash[help]
+   if reference_hash.has_key?(help)
+      grid[help_i] = answers[help_i]
+      return grid
+   else
+   end
+end
+
+
+
+
+
 #code starts game, prompts to enter a difficulty looping user input into the board until board completed.
 
 
@@ -66,16 +85,19 @@ def start_game()
    choice = prompt.select("Welcome to Ash's Sudoku generator! Please select a game difficulty", %w(Easy Medium Hard))
    if choice == "Easy" 
       grid = $easy
+      answers = $easy_answers
    elsif choice == "Medium" 
       grid = $medium 
+      answers = $medium_answers
    else choice == "Hard"
       grid = $hard
+      answers = $hard_answers
    end 
    print_current_grid(grid)
    while $play_game == true
-      user_input($reference_hash, grid)
+      user_input($reference_hash, grid, answers)
       puts print_current_grid(grid)
-      if grid == $sample_answers1
+      if grid == $easy_answers || grid == $medium_answers || grid == $hard_answers
          puts "Board complete - You win!"
          $play_game = false
       else
