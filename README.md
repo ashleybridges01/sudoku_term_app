@@ -32,9 +32,7 @@ Error handling is included to streamline user inputs and make it simple to use.
 ## Features:
 
 
-1)	The sudoku game presents a board to the via printing to the terminal. The board allows for user input via a key. An input of A1 will change the top left hand most corner of the board. Boards are chosen on application start-up menu via a dropdown selection. Users can select a number from 1-9 to input in the grid sections.  
-
-If required, the user can quit the application by pressing “q” when prompted.
+1)	The sudoku game presents a board to the via printing to the terminal. The board allows for user input via a key. An input of A1 will change the top left hand most corner of the board. Boards are chosen on application start-up menu via a dropdown selection. Users can select a number from 1-9 to input in the grid sections. If required, the user can quit the application by pressing “q” when prompted.
 
 2)	Error methods to assist with user input. Game selection only displays via a dropdown box for user selection and to limit user input errors, Once game is started if a wrong input is given, e.g. j8, an “invalid input” message is displayed, and the user is prompted to try again. Input values to the grid are limited to 1-9 in order to disallow negative numbers or numbers > 9 in line with sudoku rules.
 
