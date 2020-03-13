@@ -2,7 +2,20 @@ Ash’s Sudoku Application
 
 https://github.com/ashleybridges01/sudoku_term_app
 
+
+User Info
+
+
+The sudoku application is terminal based and can be run by typing “ruby sudoku.rb” into the command line interface. It can be downloaded via the above Github link.
+
+This application requires the following gems to run:
+
+Tty- prompt
+Colourise
+Figlet
+
 Software development plan
+
 
 The Sudoku game is a terminal based program that presents the user options to select from various Sudoku boards to solve. The game will display puzzles organised by difficulty to the user on request.
 
@@ -15,7 +28,9 @@ The target audience for this application is Sudoku enthusiasts with a particular
 A user will load the application via the Terminal and input commands as prompted, selecting difficulty and areas of the board to be changed. A quit and help option are included. The game ends when either the current board is solved, or the user selects to exit.
 Error handling is included to streamline user inputs and make it simple to use.
 
+
 Features:
+
 
 1)	The sudoku game presents a board to the via printing to the terminal. The board allows for user input via a key. An input of A1 will change the top left hand most corner of the board. Boards are chosen on application start-up menu via a dropdown selection. Users can select a number from 1-9 to input in the grid sections.  
 
@@ -27,6 +42,7 @@ Once game is started if a wrong input is given, e.g. j8, an “invalid input” 
 
 Input values to the grid are limited to 1-9 in order to disallow negative numbers or numbers > 9 in line with sudoku rules.
 
-3)	Help methods included when requested via inputting “h”.  Help methods come in two different options. One will highlight correct numbers on the board in green, the other will assist by filling in one extra number on the board.
+3)	Help methods included when requested via inputting “h”.  Help allows the user to select a board tile to be auto-filled with the correct answer.
 
 4)	A “You win!” message is displayed upon successful board completion.
+
