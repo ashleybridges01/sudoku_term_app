@@ -36,11 +36,7 @@ Error handling is included to streamline user inputs and make it simple to use.
 
 If required, the user can quit the application by pressing “q” when prompted.
 
-2)	Error methods to assist with user input. Game selection only displays via a dropdown box for user selection and to limit user input errors,
-
-Once game is started if a wrong input is given, e.g. j8, an “invalid input” message is displayed, and the user is prompted to try again.
-
-Input values to the grid are limited to 1-9 in order to disallow negative numbers or numbers > 9 in line with sudoku rules.
+2)	Error methods to assist with user input. Game selection only displays via a dropdown box for user selection and to limit user input errors, Once game is started if a wrong input is given, e.g. j8, an “invalid input” message is displayed, and the user is prompted to try again. Input values to the grid are limited to 1-9 in order to disallow negative numbers or numbers > 9 in line with sudoku rules.
 
 3)	Help methods included when requested via inputting “h”.  Help allows the user to select a board tile to be auto-filled with the correct answer.
 
