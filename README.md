@@ -1,9 +1,9 @@
-#Ash’s Sudoku Application
+# Ash’s Sudoku Application
 
 https://github.com/ashleybridges01/sudoku_term_app
 
 
-##User Info
+## User Info
 
 
 The sudoku application is terminal based and can be run by typing “ruby sudoku.rb” into the command line interface. It can be downloaded via the above Github link.
@@ -14,7 +14,7 @@ Tty- prompt
 Colourise
 Figlet
 
-Software development plan
+## Software development plan
 
 
 The Sudoku game is a terminal based program that presents the user options to select from various Sudoku boards to solve. The game will display puzzles organised by difficulty to the user on request.
@@ -29,7 +29,7 @@ A user will load the application via the Terminal and input commands as prompted
 Error handling is included to streamline user inputs and make it simple to use.
 
 
-Features:
+## Features:
 
 
 1)	The sudoku game presents a board to the via printing to the terminal. The board allows for user input via a key. An input of A1 will change the top left hand most corner of the board. Boards are chosen on application start-up menu via a dropdown selection. Users can select a number from 1-9 to input in the grid sections.  
