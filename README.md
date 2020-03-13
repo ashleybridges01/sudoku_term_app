@@ -1,9 +1,9 @@
-Ash’s Sudoku Application
+#Ash’s Sudoku Application
 
 https://github.com/ashleybridges01/sudoku_term_app
 
 
-_User Info_
+##User Info
 
 
 The sudoku application is terminal based and can be run by typing “ruby sudoku.rb” into the command line interface. It can be downloaded via the above Github link.
