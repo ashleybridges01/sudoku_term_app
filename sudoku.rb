@@ -73,9 +73,6 @@ def help_add_num(grid, reference_hash, answers)
 end
 
 
-
-
-
 #code starts game, prompts to enter a difficulty looping user input into the board until board completed.
 
 
@@ -109,3 +106,4 @@ end
  start_game()
 
  #make grids check
+
